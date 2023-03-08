@@ -6,7 +6,6 @@ export default () => {
   const number1 = getRandomInt(maxNumber);
   const number2 = getRandomInt(maxNumber);
 
-  let userAnswer;
   let correctAnswer;
 
   const maxRandom = 3;
@@ -14,19 +13,17 @@ export default () => {
   switch (numberOfOperation) {
     case 0:
       console.log(`Question: ${number1} + ${number2}`);
-      userAnswer = readLine.question('Your answer: ');
       correctAnswer = number1 + number2;
       break;
     case 1:
       console.log(`Question: ${number1} - ${number2}`);
-      userAnswer = readLine.question('Your answer: ');
       correctAnswer = number1 - number2;
       break;
     default:
       console.log(`Question: ${number1} * ${number2}`);
-      userAnswer = readLine.question('Your answer: ');
       correctAnswer = number1 * number2;
       break;
   }
+  const userAnswer = readLine.question('Your answer: ');
   return [userAnswer, correctAnswer.toString()];
 };
