@@ -2,9 +2,8 @@
 
 import greetings from '../src/cli.js';
 import index from '../src/index.js';
+import evenQuestion from '../src/even.js';
 
 const name = greetings();
-const allAnswersIsCorrect = index('even');
-if (allAnswersIsCorrect) {
-  console.log(`Congratulations, ${name}!`);
-}
+const textQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
+index(textQuestion, evenQuestion, name);

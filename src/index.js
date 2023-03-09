@@ -1,43 +1,15 @@
-import calcQuestion from './calc.js';
-import evenQuestion from './even.js';
-import gcdQuestion from './gcd.js';
-
-const question = (nameOfTheGame) => {
-  switch (nameOfTheGame) {
-    case 'even':
-      return evenQuestion();
-    case 'calc':
-      return calcQuestion();
-    case 'gcd':
-      return gcdQuestion();
-    default:
-      return null;
-  }
-};
-
-const textQuestion = (nameOfTheGame) => {
-  switch (nameOfTheGame) {
-    case 'even':
-      return 'Answer "yes" if the number is even, otherwise answer "no".';
-    case 'calc':
-      return 'What is the result of the expression?';
-    case 'gcd':
-      return 'Find the greatest common divisor of given numbers.';
-    default:
-      return null;
-  }
-};
-
-export default (nameOfTheGame) => {
-  console.log(textQuestion(nameOfTheGame));
+export default (textQuestion, gameQuestionAndAnswer, name) => {
+  console.log(textQuestion);
   const numberOfAttempts = 3;
   for (let i = 0; i < numberOfAttempts; i += 1) {
-    const attempt = question(nameOfTheGame);
-    if (attempt[0] !== attempt[1]) {
-      console.log(`'${attempt[0]}' is wrong answer ;(. Correct answer was '${attempt[1]}'.`);
+    const [userAnswer, correctAnswer] = gameQuestionAndAnswer();
+    if (userAnswer !== correctAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${name}!`);
       return false;
     }
     console.log('Correct!');
   }
+  console.log(`Congratulations, ${name}!`);
   return true;
 };

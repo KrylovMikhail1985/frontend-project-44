@@ -2,11 +2,8 @@
 
 import greetings from '../src/cli.js';
 import index from '../src/index.js';
+import gcdQuestion from '../src/gcd.js';
 
 const name = greetings();
-const allAnswersIsCorrect = index('gcd');
-if (allAnswersIsCorrect) {
-  console.log(`Congratulations, ${name}!`);
-} else {
-  console.log(`Let's try again, ${name}!`);
-}
+const textQuestion = 'Find the greatest common divisor of given numbers.';
+index(textQuestion, gcdQuestion, name);
