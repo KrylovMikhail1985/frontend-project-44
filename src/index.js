@@ -1,5 +1,6 @@
 import calcQuestion from './calc.js';
 import evenQuestion from './even.js';
+import gcdQuestion from './gcd.js';
 
 const question = (nameOfTheGame) => {
   switch (nameOfTheGame) {
@@ -7,6 +8,8 @@ const question = (nameOfTheGame) => {
       return evenQuestion();
     case 'calc':
       return calcQuestion();
+    case 'gcd':
+      return gcdQuestion();
     default:
       return null;
   }
@@ -18,6 +21,8 @@ const textQuestion = (nameOfTheGame) => {
       return 'Answer "yes" if the number is even, otherwise answer "no".';
     case 'calc':
       return 'What is the result of the expression?';
+    case 'gcd':
+      return 'Find the greatest common divisor of given numbers.';
     default:
       return null;
   }
